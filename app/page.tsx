@@ -64,7 +64,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glassmorphism mb-8">
             <Sparkles className="w-5 h-5 text-red-400" />
-            <span className="text-sm text-red-300">WKWKWKWKWK</span>
+            <span className="text-sm text-red-300">Ini Ada Promo!</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
