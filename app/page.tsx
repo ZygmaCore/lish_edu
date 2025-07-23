@@ -68,9 +68,9 @@ export default function Home() {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Master English with
+           Master Free Fire
             <span className="block bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-transparent">
-              Lish Edu
+            Gacor Wak
             </span>
           </h1>
           

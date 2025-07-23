@@ -34,12 +34,12 @@ export default function Contact() {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Our Campus",
-      details: ["Jl. Sudirman No. 123", "Jakarta Selatan, 12190", "Indonesia"]
+      details: [" Jl. Poras No.07", "Loji, Kec. Bogor", "Indonesia"]
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      details: ["+62 21 1234 5678", "+62 811 2345 6789", "Available 8 AM - 8 PM"]
+      details: ["+62 8221 9173 046", "Available 8 AM - 8 PM"]
     },
     {
       icon: <Mail className="w-6 h-6" />,
