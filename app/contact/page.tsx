@@ -49,7 +49,7 @@ export default function Contact() {
     {
       icon: <Clock className="w-6 h-6" />,
       title: "Office Hours",
-      details: ["Monday - Friday: 8 AM - 8 PM", "Saturday: 9 AM - 5 PM", "Sunday: Closed"]
+      details: ["Online (Senin - Jumat) : 19.00 - 21.00 WIB", "Offline (Sabtu) : 12.00 - 20.00 WIB", "Minggu : Libur"]
     }
   ];
 
@@ -63,9 +63,9 @@ export default function Contact() {
         
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Minat 
+           Minat Bergabung
             <span className="block bg-gradient-to-r from-gray-200 via-white to-gray-300 bg-clip-text text-transparent">
-              Bergabung
+            Bersama Kami
             </span>
           </h1>
           
@@ -83,20 +83,20 @@ export default function Contact() {
             <div className="card-3d glassmorphism rounded-2xl p-8 border border-white/10">
               <div className="flex items-center space-x-3 mb-8">
                 <MessageCircle className="w-8 h-8 text-white" />
-                <h2 className="text-3xl font-bold text-white">Send us a Message</h2>
+                <h2 className="text-3xl font-bold text-white">Kirimkan Pesan Kepada Kami</h2>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">Full Name</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">Nama Lengkap</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/20 transition-all duration-300 text-white placeholder-gray-400"
-                      placeholder="Enter your full name"
+                      placeholder="Masukan Nama Lengkap"
                       required
                     />
                   </div>
@@ -108,7 +108,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/20 transition-all duration-300 text-white placeholder-gray-400"
-                      placeholder="Enter your email"
+                      placeholder="Masukan Email Anda"
                       required
                     />
                   </div>
@@ -116,43 +116,43 @@ export default function Contact() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">Phone Number</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">Nomer Telpon</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/20 transition-all duration-300 text-white placeholder-gray-400"
-                      placeholder="Enter your phone number"
+                      placeholder="Mauskan Nomor Telpon"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">Program Interest</label>
-                    <select
-                      name="program"
-                      value={formData.program}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/20 transition-all duration-300 text-white"
-                      required
-                    >
-                      <option value="">Select a program</option>
-                      <option value="foundation">Foundation (3 months)</option>
-                      <option value="business">Business Pro (4 months)</option>
-                      <option value="executive">Executive (6 months)</option>
-                    </select>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">Pilih Program</label>
+<select
+  name="program"
+  value={formData.program}
+  onChange={handleChange}
+  className="w-full px-4 py-3 rounded-xl bg-gray-100/10 text-white border border-gray-300/20 focus:border-white focus:ring-2 focus:ring-white/30 placeholder-white transition-all duration-300 backdrop-blur-sm"
+  required
+>
+  <option value="" className="text-gray-300 bg-gray-700">Pilih program</option>
+  <option value="foundation" className="text-black">Kelas Online</option>
+  <option value="business" className="text-black">Kelas Offline</option>
+</select>
+
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Message</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-300">Pesan</label>
                   <textarea
-                    name="message"
+                    name="pesan"
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/20 transition-all duration-300 text-white placeholder-gray-400 resize-none"
-                    placeholder="Tell us about your goals and any questions you have..."
+                    placeholder="Ceritakan kepada kami tentang tujuan Anda dan pertanyaan apa pun yang Anda miliki..."
                     required
                   ></textarea>
                 </div>
@@ -167,7 +167,7 @@ export default function Contact() {
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      <span>Send Message</span>
+                      <span>Kirim Pesan</span>
                     </>
                   )}
                 </button>
@@ -177,9 +177,9 @@ export default function Contact() {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-white mb-6">Contact Information</h2>
+                <h2 className="text-3xl font-bold text-white mb-6">Informasi Kontak</h2>
                 <p className="text-gray-300 leading-relaxed">
-                  We're here to help you start your English learning journey. Reach out to us through any of the channels below, and our friendly team will get back to you promptly.
+     Kami siap membantu Anda memulai perjalanan belajar bahasa Inggris Anda. Hubungi kami melalui salah satu saluran di bawah ini, dan tim kami yang ramah akan segera menghubungi Anda.
                 </p>
               </div>
 
