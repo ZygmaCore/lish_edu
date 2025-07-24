@@ -39,15 +39,14 @@ export default function About() {
 
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Tentang
+            About
             <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 bg-clip-text text-transparent">
               Lish Edu
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Menghadirkan masa depan pendidikan Bahasa Inggris untuk para profesional muda yang ambisius melalui metode pengajaran inovatif dan pengalaman belajar yang dipersonalisasi.
-          </p>
+Di Lish Edu, kami percaya bahwa setiap siswa, baik anak-anak, remaja, maupun dewasa punya cara unik dalam belajar Bahasa Inggris. Karena itu, kami merancang program yang fleksibel, bermakna, dan tentunya menyenangkan untuk semua usia.          </p>
         </div>
       </section>
 

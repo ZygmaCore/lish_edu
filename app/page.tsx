@@ -206,7 +206,7 @@ export default function Home() {
                   </div>
                 )}
 
-                <div className="mb-2 text-sm font-semibold text-red-300">{course.level}</div>
+                <div className="mb-2 text-sm font-semibold text-red-300">{course.level}</div>  
                 <h3 className="text-2xl font-bold text-white mb-2">{course.title}</h3>
 
                 <div className="flex items-center justify-between mb-4">
