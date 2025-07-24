@@ -72,7 +72,7 @@ func checkPassword(password, hash string) bool {
 func registerHandler(w http.ResponseWriter, r *http.Request) {
 	var req RegisterRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
-		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		http.Error(w, "Invalid request body: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 
@@ -85,6 +85,7 @@ func registerHandler(w http.ResponseWriter, r *http.Request) {
 	// Hash password
 	hashedPassword, err := hashPassword(req.Password)
 	if err != nil {
+		log.Printf("Password hashing error: %v", err)
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 		return
 	}
@@ -99,7 +100,12 @@ func registerHandler(w http.ResponseWriter, r *http.Request) {
 	).Scan(&user.ID, &user.Fullname, &user.Email, &user.CreatedAt)
 
 	if err != nil {
-		http.Error(w, "Email already exists", http.StatusConflict)
+		log.Printf("Database error: %v", err)
+		if err.Error() == `pq: duplicate key value violates unique constraint "users_email_key"` {
+			http.Error(w, "Email already exists", http.StatusConflict)
+			return
+		}
+		http.Error(w, "Database error: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 

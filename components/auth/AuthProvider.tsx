@@ -67,6 +67,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+
   const register = async (email: string, password: string, name: string): Promise<boolean> => {
     setIsLoading(true);
     try {
@@ -83,7 +84,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
 
       if (!response.ok) {
-        throw new Error('Registration failed');
+        const errorText = await response.text();
+        throw new Error(errorText || 'Registration failed');
       }
 
       const data: AuthResponse = await response.json();
@@ -93,7 +95,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return true;
     } catch (error) {
       console.error('Registration error:', error);
-      return false;
+      if (error instanceof Error) {
+        if (error.message.includes('Email already exists')) {
+          throw new Error('This email is already registered');
+        }
+        throw error;
+      }
+      throw new Error('Registration failed');
     } finally {
       setIsLoading(false);
     }

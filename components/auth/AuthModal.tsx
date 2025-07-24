@@ -35,13 +35,13 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
         setEmail('');
         setPassword('');
         setName('');
-      } else {
-        setError(mode === 'login'
-            ? 'Invalid email or password'
-            : 'Registration failed. Please try again.');
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An unexpected error occurred. Please try again.');
+      }
     }
   };
 
