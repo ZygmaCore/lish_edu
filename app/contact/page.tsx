@@ -206,16 +206,39 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Map */}
-              <div className="card-3d glassmorphism rounded-xl overflow-hidden border border-white/10">
-                <div className="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-white mx-auto mb-4" />
-                    <p className="text-white font-semibold">Interactive Map</p>
-                    <p className="text-gray-400 text-sm">Jl. Sudirman No. 123, Jakarta Selatan</p>
-                  </div>
-                </div>
-              </div>
+{/* Map */}
+<div className="relative card-3d glassmorphism rounded-xl overflow-hidden border border-white/10 group">
+  {/* Link ke Google Maps langsung */}
+  <a
+    href="https://www.google.com/maps/place/SMP-SMA+-+SMK+PESAT/@-6.5832144,106.7667541,17z"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="absolute inset-0 z-10"
+    aria-label="Buka Google Maps"
+  ></a>
+
+  {/* Iframe Peta */}
+  <div className="w-full h-64">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1981.7555179932842!2d106.76675406943814!3d-6.58321439888776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4ff86736073%3A0xc6f6cd26a63bd243!2sSMP-SMA%20-%20SMK%20PESAT!5e0!3m2!1sid!2sid!4v1753326088241!5m2!1sid!2sid"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  {/* Info lokasi */}
+  <div className="bg-gray-900 px-4 py-3 text-center">
+    <p className="text-white font-semibold">Lokasi SMK Informatika Pesat</p>
+    <p className="text-gray-400 text-sm">Jl. Raya Pajajaran No.100, Bogor</p>
+  </div>
+</div>
+
+
+              
             </div>
           </div>
         </div>
