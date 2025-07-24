@@ -9,6 +9,7 @@ import (
 
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
+	"github.com/rs/cors"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -153,6 +154,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+// In the main function, replace the last few lines with:
 func main() {
 	// Initialize database
 	if err := initDB(); err != nil {
@@ -165,7 +167,18 @@ func main() {
 	r.HandleFunc("/register", registerHandler).Methods("POST")
 	r.HandleFunc("/login", loginHandler).Methods("POST")
 
+	// Setup CORS
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"http://localhost:3000"}, // Update this with your frontend URL
+		AllowedMethods: []string{"GET", "POST", "OPTIONS"},
+		AllowedHeaders: []string{"Content-Type"},
+		Debug:          true,
+	})
+
+	// Create handler with CORS
+	handler := c.Handler(r)
+
 	// Start server
 	log.Println("Server starting on port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(":8080", handler))
 }

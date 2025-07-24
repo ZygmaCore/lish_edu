@@ -1,12 +1,18 @@
+
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface User {
-  id: string;
+  id: number;
+  fullname: string;
   email: string;
-  role: 'admin' | 'user';
-  name: string;
+  created_at: string;
+}
+
+interface AuthResponse {
+  token: string;
+  user: User;
 }
 
 interface AuthContextType {
@@ -19,13 +25,14 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const API_URL = 'http://localhost:8080'; // Update this with your backend URL
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check for stored auth
-    const storedUser = localStorage.getItem('lish-edu-user');
+    const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -34,49 +41,74 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Demo credentials
-    if (email === 'admin@lishedu.com' && password === 'admin123') {
-      const adminUser = { id: '1', email, role: 'admin' as const, name: 'Admin' };
-      setUser(adminUser);
-      localStorage.setItem('lish-edu-user', JSON.stringify(adminUser));
-      setIsLoading(false);
+    try {
+      const response = await fetch(`${API_URL}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+
+      const data: AuthResponse = await response.json();
+      setUser(data.user);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.token);
       return true;
-    } else if (email === 'user@example.com' && password === 'user123') {
-      const normalUser = { id: '2', email, role: 'user' as const, name: 'User' };
-      setUser(normalUser);
-      localStorage.setItem('lish-edu-user', JSON.stringify(normalUser));
+    } catch (error) {
+      console.error('Login error:', error);
+      return false;
+    } finally {
       setIsLoading(false);
-      return true;
     }
-    
-    setIsLoading(false);
-    return false;
   };
 
   const register = async (email: string, password: string, name: string): Promise<boolean> => {
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    const newUser = { id: Date.now().toString(), email, role: 'user' as const, name };
-    setUser(newUser);
-    localStorage.setItem('lish-edu-user', JSON.stringify(newUser));
-    setIsLoading(false);
-    return true;
+    try {
+      const response = await fetch(`${API_URL}/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          fullname: name,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Registration failed');
+      }
+
+      const data: AuthResponse = await response.json();
+      setUser(data.user);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.token);
+      return true;
+    } catch (error) {
+      console.error('Registration error:', error);
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('lish-edu-user');
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, register, isLoading }}>
-      {children}
-    </AuthContext.Provider>
+      <AuthContext.Provider value={{ user, login, logout, register, isLoading }}>
+        {children}
+      </AuthContext.Provider>
   );
 }
 
