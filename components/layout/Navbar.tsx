@@ -42,16 +42,15 @@ export function Navbar() {
         scrolled ? 'glassmorphism shadow-2xl' : 'glassmorphism'
       } rounded-2xl px-6 py-3 max-w-6xl w-[95%]`}>
         <div className="flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2 group">
-  <img
-    src="/public/images/your-icon-name.png" // Replace 'your-icon-name.png' with your actual image file name
-    alt="Lish Edu Icon"
-    className="w-8 h-8 object-contain group-hover:rotate-12 transition-transform duration-300"
-  />
-  <span className="text-xl font-bold gradient-text">Lish Edu</span>
-</Link>
+          <Link href="/" className="flex items-center space-x-2 group">
+            <img
+              src="/images/your-icon-name.png" // Pastikan gambar ada di public/images/
+              alt="Lish Edu Icon"
+              className="w-8 h-8 object-contain group-hover:rotate-12 transition-transform duration-300"
+            />
+            <span className="text-xl font-bold gradient-text">Lish Edu</span>
+          </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -69,7 +68,6 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             {user ? (
               <div className="flex items-center space-x-4">
@@ -107,7 +105,6 @@ export function Navbar() {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-300"
@@ -116,7 +113,6 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden mt-4 pt-4 border-t border-white/10">
             <div className="flex flex-col space-y-2">
@@ -173,6 +169,9 @@ export function Navbar() {
           </div>
         )}
       </nav>
+
+      {/* ======= Cards Section ======= */}
+      
 
       <AuthModal
         isOpen={authModalOpen}
