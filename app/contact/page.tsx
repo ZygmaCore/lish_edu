@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Instagram, Clock, Send, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -42,9 +42,9 @@ export default function Contact() {
       details: ["+62 8221 9173 046", "Available 8 AM - 8 PM"]
     },
     {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email Us",
-      details: ["info@lishedu.com", "admission@lishedu.com", "support@lishedu.com"]
+      icon: <Instagram className="w-6 h-6" />,
+      title: "Instagram",
+      details: ["@lish_edu"]
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -207,7 +207,7 @@ export default function Contact() {
               </div>
 
 {/* Map */}
-<div className="relative card-3d glassmorphism rounded-xl overflow-hidden border border-white/10 group">
+<div className="relative card-3d glassmorphism rounded-xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500 group">
   {/* Link ke Google Maps langsung */}
   <a
     href="https://www.google.com/maps/place/SMP-SMA+-+SMK+PESAT/@-6.5832144,106.7667541,17z"
@@ -218,7 +218,7 @@ export default function Contact() {
   ></a>
 
   {/* Iframe Peta */}
-  <div className="w-full h-64">
+  <div className="w-full h-64 rounded-lg overflow-hidden">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1981.7555179932842!2d106.76675406943814!3d-6.58321439888776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4ff86736073%3A0xc6f6cd26a63bd243!2sSMP-SMA%20-%20SMK%20PESAT!5e0!3m2!1sid!2sid!4v1753326088241!5m2!1sid!2sid"
       width="100%"
@@ -231,11 +231,12 @@ export default function Contact() {
   </div>
 
   {/* Info lokasi */}
-  <div className="bg-gray-900 px-4 py-3 text-center">
+  <div className="mt-4 text-center">
     <p className="text-white font-semibold">Lokasi SMK Informatika Pesat</p>
     <p className="text-gray-400 text-sm">Jl. Raya Pajajaran No.100, Bogor</p>
   </div>
 </div>
+
 
 
               
