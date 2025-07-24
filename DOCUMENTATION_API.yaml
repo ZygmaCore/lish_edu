@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  title: Authentication API
+  description: API for user registration and login
+  version: 1.0.0
+  contact:
+    email: your-email@example.com
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /register:
+    post:
+      summary: Register a new user
+      description: Create a new user account with fullname, email, and password
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+            example:
+              fullname: "John Doe"
+              email: "john@example.com"
+              password: "securepassword123"
+      responses:
+        '200':
+          description: User successfully registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+              example:
+                token: "dummy-token"
+                user:
+                  id: 1
+                  fullname: "John Doe"
+                  email: "john@example.com"
+                  created_at: "2025-07-24T10:30:00Z"
+        '400':
+          description: Invalid request or missing required fields
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Fullname, email and password are required"
+        '409':
+          description: Email already exists
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Email already exists"
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Internal server error"
+
+  /login:
+    post:
+      summary: Login user
+      description: Authenticate user with email and password
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              email: "john@example.com"
+              password: "securepassword123"
+      responses:
+        '200':
+          description: Successfully logged in
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+              example:
+                token: "dummy-token"
+                user:
+                  id: 1
+                  fullname: "John Doe"
+                  email: "john@example.com"
+                  created_at: "2025-07-24T10:30:00Z"
+        '400':
+          description: Invalid request or missing required fields
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Email and password are required"
+        '401':
+          description: Invalid credentials
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Invalid credentials"
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Internal server error"
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique identifier for the user
+        fullname:
+          type: string
+          description: User's full name
+        email:
+          type: string
+          format: email
+          description: User's email address
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the user was created
+      required:
+        - id
+        - fullname
+        - email
+        - created_at
+
+    RegisterRequest:
+      type: object
+      properties:
+        fullname:
+          type: string
+          description: User's full name
+          minLength: 1
+        email:
+          type: string
+          format: email
+          description: User's email address
+        password:
+          type: string
+          description: User's password
+          minLength: 6
+      required:
+        - fullname
+        - email
+        - password
+
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: User's email address
+        password:
+          type: string
+          description: User's password
+      required:
+        - email
+        - password
+
+    AuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Authentication token for subsequent requests
+        user:
+          $ref: '#/components/schemas/User'
+      required:
+        - token
+        - user
+
+tags:
+  - name: Authentication
+    description: Authentication operations
