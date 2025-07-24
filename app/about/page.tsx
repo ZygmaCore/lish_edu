@@ -5,27 +5,27 @@ import { Users, Award, Clock, Target, BookOpen, Zap } from 'lucide-react';
 
 export default function About() {
   const stats = [
-    { number: "5000+", label: "Happy Students", icon: <Users className="w-6 h-6" /> },
-    { number: "98%", label: "Success Rate", icon: <Award className="w-6 h-6" /> },
-    { number: "10+", label: "Years Experience", icon: <Clock className="w-6 h-6" /> },
-    { number: "50+", label: "Expert Teachers", icon: <Target className="w-6 h-6" /> }
+    { number: "5000+", label: "Siswa Bahagia", icon: <Users className="w-6 h-6" /> },
+    { number: "98%", label: "Tingkat Keberhasilan", icon: <Award className="w-6 h-6" /> },
+    { number: "10+", label: "Tahun Pengalaman", icon: <Clock className="w-6 h-6" /> },
+    { number: "50+", label: "Pengajar Ahli", icon: <Target className="w-6 h-6" /> }
   ];
 
   const values = [
     {
       icon: <BookOpen className="w-12 h-12" />,
-      title: "Excellence in Education",
-      description: "We maintain the highest standards in English language education with cutting-edge methodologies."
+      title: "Keunggulan dalam Pendidikan",
+      description: "Kami menjaga standar tertinggi dalam pendidikan Bahasa Inggris dengan metode pengajaran terkini."
     },
     {
       icon: <Users className="w-12 h-12" />,
-      title: "Student-Centered Approach",
-      description: "Every program is tailored to individual learning styles and career aspirations."
+      title: "Pendekatan Berpusat pada Siswa",
+      description: "Setiap program disesuaikan dengan gaya belajar dan tujuan karir masing-masing individu."
     },
     {
       icon: <Zap className="w-12 h-12" />,
-      title: "Innovation & Technology",
-      description: "Leveraging the latest educational technology to enhance your learning experience."
+      title: "Inovasi & Teknologi",
+      description: "Menggunakan teknologi pendidikan terbaru untuk meningkatkan pengalaman belajar Anda."
     }
   ];
 
@@ -36,18 +36,17 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-transparent to-blue-800/20"></div>
         <div className="absolute top-20 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-float"></div>
-        
+
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            About
+            Tentang
             <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 bg-clip-text text-transparent">
               Lish Edu
             </span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Pioneering the future of English education for ambitious young professionals 
-            through innovative teaching methods and personalized learning experiences.
+            Menghadirkan masa depan pendidikan Bahasa Inggris untuk para profesional muda yang ambisius melalui metode pengajaran inovatif dan pengalaman belajar yang dipersonalisasi.
           </p>
         </div>
       </section>
@@ -78,39 +77,32 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
-                Our <span className="text-blue-400">Story</span>
+                Kisah <span className="text-blue-400">Kami</span>
               </h2>
               <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
                 <p>
-                  Founded in 2014, Lish Edu began with a simple yet powerful vision: to revolutionize 
-                  English language education for the modern generation. We recognized that traditional 
-                  language learning methods weren't meeting the needs of ambitious young professionals.
+                  Didirikan pada tahun 2014, Lish Edu bermula dari sebuah visi sederhana namun kuat: merevolusi pendidikan Bahasa Inggris untuk generasi modern. Kami menyadari bahwa metode pembelajaran bahasa tradisional tidak lagi relevan bagi para profesional muda yang ambisius.
                 </p>
                 <p>
-                  Today, we're proud to be at the forefront of innovative English education, combining 
-                  cutting-edge technology with proven pedagogical methods. Our graduates work at top 
-                  multinational companies, pursue advanced degrees abroad, and confidently communicate 
-                  in global business environments.
+                  Kini, kami bangga berada di garis depan pendidikan Bahasa Inggris yang inovatif, menggabungkan teknologi canggih dengan metode pedagogi yang terbukti efektif. Lulusan kami bekerja di perusahaan multinasional ternama, melanjutkan studi ke luar negeri, dan percaya diri dalam komunikasi bisnis global.
                 </p>
                 <p>
-                  What sets us apart is our commitment to creating an exclusive, premium learning 
-                  environment where every student receives personalized attention and support to 
-                  achieve their English language goals.
+                  Yang membedakan kami adalah komitmen kami untuk menciptakan lingkungan belajar eksklusif dan premium, di mana setiap siswa mendapatkan perhatian dan dukungan yang dipersonalisasi untuk mencapai tujuan berbahasa Inggris mereka.
                 </p>
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="glassmorphism rounded-2xl p-8 border border-blue-500/20">
                 <img
                   src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
-                  alt="Modern English classroom"
+                  alt="Kelas Bahasa Inggris modern"
                   className="w-full h-64 object-cover rounded-xl mb-6"
                 />
                 <blockquote className="text-lg text-gray-300 italic">
-                  "At Lish Edu, we don't just teach English – we empower dreams and unlock global opportunities."
+                  "Di Lish Edu, kami tidak hanya mengajar Bahasa Inggris – kami memberdayakan mimpi dan membuka peluang global."
                 </blockquote>
-                <cite className="block mt-4 text-blue-400 font-semibold">- Sarah Johnson, Founder & CEO</cite>
+                <cite className="block mt-4 text-blue-400 font-semibold">- Sarah Johnson, Pendiri & CEO</cite>
               </div>
             </div>
           </div>
@@ -122,13 +114,13 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Our <span className="text-blue-400">Values</span>
+              Nilai-Nilai <span className="text-blue-400">Kami</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              The principles that guide everything we do at Lish Edu
+              Prinsip yang membimbing semua hal yang kami lakukan di Lish Edu
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <div
@@ -155,32 +147,32 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Meet Our <span className="text-blue-400">Expert Team</span>
+              Tim <span className="text-blue-400">Ahli Kami</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              World-class educators dedicated to your success
+              Pengajar kelas dunia yang berdedikasi untuk kesuksesan Anda
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 name: "Dr. Michael Chen",
-                role: "Head of Curriculum",
+                role: "Kepala Kurikulum",
                 image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
-                credentials: "PhD in Applied Linguistics, Oxford University"
+                credentials: "PhD Linguistik Terapan, Oxford University"
               },
               {
                 name: "Sarah Johnson",
-                role: "Founder & CEO",
+                role: "Pendiri & CEO",
                 image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
-                credentials: "MA in TESOL, Cambridge University"
+                credentials: "MA TESOL, Cambridge University"
               },
               {
                 name: "James Wilson",
-                role: "Senior Instructor",
+                role: "Instruktur Senior",
                 image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg",
-                credentials: "CELTA Certified, 15+ years experience"
+                credentials: "Sertifikat CELTA, Pengalaman 15+ tahun"
               }
             ].map((member, index) => (
               <div
