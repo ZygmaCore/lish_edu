@@ -116,8 +116,8 @@ export default function Home() {
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
            Master English with
-            <span className="block bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-transparent">
-            Lish Edu
+          <span className="block bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-transparent transform hover:scale-105 transition-transform duration-500">
+              Lish Edu
             </span>
           </h1>
 
