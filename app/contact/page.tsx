@@ -63,7 +63,7 @@ export default function Contact() {
         
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Get in
+            minat
             <span className="block bg-gradient-to-r from-gray-200 via-white to-gray-300 bg-clip-text text-transparent">
               Touch
             </span>

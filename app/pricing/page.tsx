@@ -7,78 +7,53 @@ import { Check, Star, Zap, Crown } from 'lucide-react';
 export default function Pricing() {
   const plans = [
     {
-      name: "Foundation",
-      price: "2,500,000",
-      duration: "3 months",
-      description: "Perfect for beginners starting their English journey",
+      name: "Online Class",
+      price: "350,000",
+      duration: "2x seminggu (1x pertemuan = 1 jam)",
+      description: "",
       features: [
-        "20 hours of live classes per month",
-        "Basic grammar and vocabulary",
-        "Speaking practice sessions",
-        "Writing fundamentals",
-        "Mobile app access",
-        "Community forum access"
+        "Hari Senin – Jumat",
+        "19.00 – 21.00 WIB",
+        "Belajar dari rumah dengan tetap seru dan interaktif via Zoom/Google Meet!"
       ],
       icon: <Star className="w-8 h-8" />,
       popular: false
     },
     {
-      name: "Business Pro",
-      price: "3,500,000", 
-      duration: "4 months",
-      description: "Ideal for professionals advancing their careers",
+      name: "Offline Class",
+      price: "350,000",
+      duration: "1x seminggu (1 pertemuan = 1,5 jam)", 
+      description: "",
       features: [
-        "30 hours of live classes per month",
-        "Business communication skills",
-        "Presentation & meeting English",
-        "Email writing mastery",
-        "1-on-1 coaching sessions",
-        "Career guidance",
-        "Premium materials",
-        "Certificate of completion"
+        "Hari Sabtu",
+        "12.00 – 20.00 WIB",
+        "Kelas tatap muka dengan fasilitas nyaman dan suasana menyenangkan di Koopi Homey Cafe",
       ],
-      icon: <Zap className="w-8 h-8" />,
-      popular: true
-    },
-    {
-      name: "Executive",
-      price: "4,500,000",
-      duration: "6 months", 
-      description: "Comprehensive program for leadership roles",
-      features: [
-        "40 hours of live classes per month",
-        "Advanced grammar & writing",
-        "IELTS/TOEFL preparation",
-        "Interview & negotiation skills",
-        "Weekly 1-on-1 mentoring",
-        "Industry-specific vocabulary",
-        "Global networking events",
-        "Lifetime alumni access",
-        "Job placement assistance"
-      ],
-      icon: <Crown className="w-8 h-8" />,
+      icon: <Star className="w-8 h-8" />,
       popular: false
     }
   ];
 
   const addOns = [
     {
-      name: "Personal Tutor",
-      price: "500,000",
-      unit: "per month",
-      description: "Dedicated one-on-one sessions with expert tutors"
+      name: "English for Kids (Usia 5–11 tahun) – (Not Available during 2025)",
+      description: "Belajar Bahasa Inggris jadi petualangan seru! Anak-anak akan diajak mengenal Bahasa Inggris melalui games interaktif, lagu, cerita, dan aktivitas seru lainnya. Kelas ini melatih anak untuk lebih percaya diri berbicara dalam Bahasa Inggris sejak dini."
     },
     {
-      name: "IELTS Intensive",
-      price: "1,200,000",
-      unit: "one-time",
-      description: "Specialized IELTS preparation course"
+      name: "English for Teens (Usia 12–17 tahun)",
+      description: "Remaja butuh lebih dari sekadar hafalan grammar. Di kelas ini, mereka akan belajar bagaimana menggunakan Bahasa Inggris secara aktif dalam kehidupan sehari-hari, tugas sekolah, hingga presentasi. Disajikan dengan metode yang engaging dan relevan dengan dunia mereka."
     },
     {
-      name: "Speaking Club",
-      price: "300,000",
-      unit: "per month", 
-      description: "Daily conversation practice with native speakers"
+      name: "English for Adults (17 tahun ke atas)",
+      description: "Apakah kamu ingin lancar berbicara untuk kerja, interview, studi, atau traveling? Kelas dewasa kami dirancang agar kamu bisa berkomunikasi dengan percaya diri, dengan pendekatan praktis dan langsung bisa dipakai dalam situasi nyata."
+    },
+    {
+      name: "Conversation Class (All ages)",
+      description: "Latihan speaking secara aktif dalam suasana santai, tanpa takut salah! Kelas ini cocok untuk semua usia yang ingin memperlancar kemampuan berbicara dalam Bahasa Inggris melalui dialog, diskusi, roleplay, dan simulasi kehidupan nyata."
+    },
+    {
+      name: "TOEFL/TOEIC Preparation",
+      description: "Siapkan dirimu menghadapi tes internasional dengan strategi yang terstruktur dan latihan yang terarah. Kami bantu kamu memahami format soal, meningkatkan skor, dan menghadapi ujian dengan lebih siap."
     }
   ];
 
@@ -92,38 +67,31 @@ export default function Pricing() {
         
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Investment in Your
+          Investasi untuk Kesuksesan
             <span className="block bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent">
-              Future Success
-            </span>
+            Masa Depan Anda</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Choose the perfect program to accelerate your English mastery and unlock global opportunities.
+          Pilih program yang tepat untuk mempercepat penguasaan bahasa Inggris Anda dan membuka peluang global.
           </p>
         </div>
       </section>
 
       {/* Pricing Plans */}
       <section className="py-20 px-4 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
+        <div className="max-w-9xl mx-auto ">
+        <div className="grid md:grid-cols-2 gap-8 justify-center">
+        {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`card-3d relative p-8 rounded-2xl glassmorphism transition-all duration-500 border ${
+                className={`card-3d relative p-8 mx-auto rounded-2xl glassmorphism transition-all duration-500 border ${
                   plan.popular 
                     ? 'border-yellow-400/50 bg-yellow-500/10 scale-105' 
                     : 'border-yellow-500/20 hover:border-yellow-400/40'
                 } hover:shadow-2xl hover:shadow-yellow-500/20`}
               >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="px-6 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full text-sm font-semibold">
-                      Most Popular
-                    </div>
-                  </div>
-                )}
+
                 
                 <div className="text-center mb-8">
                   <div className="text-yellow-400 mb-4 flex justify-center">
@@ -167,10 +135,10 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Enhance Your <span className="text-yellow-400">Learning</span>
+              Program <span className="text-yellow-400">LishEdu</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Optional add-ons to accelerate your progress
+              Beberapa program belajar dari LishEdu
             </p>
           </div>
           
@@ -183,10 +151,7 @@ export default function Pricing() {
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-yellow-300 transition-colors duration-300">
                   {addon.name}
                 </h3>
-                <div className="text-2xl font-bold text-yellow-400 mb-2">
-                  Rp {addon.price}
-                </div>
-                <div className="text-gray-400 mb-4">{addon.unit}</div>
+                
                 <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
                   {addon.description}
                 </p>
