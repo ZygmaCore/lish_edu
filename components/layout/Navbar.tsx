@@ -42,10 +42,14 @@ export function Navbar() {
         scrolled ? 'glassmorphism shadow-2xl' : 'glassmorphism'
       } rounded-2xl px-6 py-3 max-w-6xl w-[95%]`}>
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 group">
-            <BookOpen className="w-8 h-8 text-blue-400 group-hover:rotate-12 transition-transform duration-300" />
-            <span className="text-xl font-bold gradient-text">Lish Edu</span>
-          </Link>
+        <Link href="/" className="flex items-center space-x-2 group">
+  <img
+    src="/public/images/your-icon-name.png" // Replace 'your-icon-name.png' with your actual image file name
+    alt="Lish Edu Icon"
+    className="w-8 h-8 object-contain group-hover:rotate-12 transition-transform duration-300"
+  />
+  <span className="text-xl font-bold gradient-text">Lish Edu</span>
+</Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
