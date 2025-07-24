@@ -63,14 +63,14 @@ export default function Contact() {
         
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            minat
+            Minat 
             <span className="block bg-gradient-to-r from-gray-200 via-white to-gray-300 bg-clip-text text-transparent">
-              Touch
+              Bergabung
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Ready to start your English learning journey? Let's discuss how we can help you achieve your goals.
+           Siap belajar Bahasa Inggris? Hubungi contact kami untuk bantu capai tujuan Anda.
           </p>
         </div>
       </section>
