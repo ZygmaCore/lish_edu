@@ -122,7 +122,7 @@ export default function Pricing() {
                       : 'bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-700 hover:to-yellow-600'
                   }`}
                 >
-                  Enroll Now
+                  Daftar Sekarang
                 </Link>
               </div>
             ))}
@@ -166,27 +166,23 @@ export default function Pricing() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Frequently Asked <span className="text-yellow-400">Questions</span>
+            Pertanyaan yang <span className="text-yellow-400"> Sering Diajukan</span>
             </h2>
           </div>
           
           <div className="space-y-6">
             {[
               {
-                question: "What payment methods do you accept?",
-                answer: "We accept bank transfers, credit cards, and installment plans for your convenience."
+                question: "Metode pembayaran apa saja yang Anda terima?",
+                answer: "Kami menerima transfer bank, kartu kredit, dan cicilan demi kenyamanan Anda."
               },
               {
-                question: "Can I switch programs mid-course?",
-                answer: "Yes, you can upgrade your program at any time. We'll adjust the pricing accordingly."
+                question: "Bisakah saya mengganti program di tengah jalan?",
+                answer: "Ya, Anda dapat meningkatkan program kapan saja."
               },
               {
-                question: "Do you offer refunds?",
-                answer: "We offer a 30-day money-back guarantee if you're not completely satisfied."
-              },
-              {
-                question: "Are there any hidden fees?",
-                answer: "No, our pricing is transparent. The only additional costs are optional add-ons you choose."
+                question: "Apakah ada biaya tersembunyi?",
+                answer: "Tidak, Kami tidak memiliki biaya tambahan."
               }
             ].map((faq, index) => (
               <div
