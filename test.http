@@ -1,0 +1,179 @@
+### Variables
+@baseUrl = http://localhost:8080
+@authToken = dummy-token
+
+### Health Check
+GET {{baseUrl}}/health
+Accept: application/json
+
+### Register - Success
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "fullname": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "securePass123!"
+}
+
+### Register - Missing Fullname
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "securePass123!"
+}
+
+### Register - Missing Email
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "fullname": "John Doe",
+  "password": "securePass123!"
+}
+
+### Register - Missing Password
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "fullname": "John Doe",
+  "email": "john.doe@example.com"
+}
+
+### Register - Invalid Email Format
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "fullname": "John Doe",
+  "email": "invalid-email",
+  "password": "securePass123!"
+}
+
+### Register - Duplicate Email
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "fullname": "Jane Doe",
+  "email": "john.doe@example.com",
+  "password": "differentPass456!"
+}
+
+### Login - Success
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "securePass123!"
+}
+
+### Login - Invalid Email
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "nonexistent@example.com",
+  "password": "securePass123!"
+}
+
+### Login - Wrong Password
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "wrongPassword123!"
+}
+
+### Login - Missing Email
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "password": "securePass123!"
+}
+
+### Login - Missing Password
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com"
+}
+
+### Get User Profile (Protected Route)
+GET {{baseUrl}}/api/profile
+Authorization: Bearer {{authToken}}
+Accept: application/json
+
+### Update User Profile (Protected Route)
+PUT {{baseUrl}}/api/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullname": "John Doe Updated",
+  "email": "john.updated@example.com"
+}
+
+### Change Password (Protected Route)
+POST {{baseUrl}}/api/change-password
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "current_password": "securePass123!",
+  "new_password": "newSecurePass456!"
+}
+
+### Logout (Protected Route)
+POST {{baseUrl}}/api/logout
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+### Reset Password Request
+POST {{baseUrl}}/reset-password-request
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com"
+}
+
+### Reset Password Confirm
+POST {{baseUrl}}/reset-password-confirm
+Content-Type: application/json
+
+{
+  "token": "reset-token-received-by-email",
+  "new_password": "newSecurePass789!"
+}
+
+### Invalid Auth Token Test
+GET {{baseUrl}}/api/profile
+Authorization: Bearer invalid-token
+Accept: application/json
+
+### Missing Auth Token Test
+GET {{baseUrl}}/api/profile
+Accept: application/json
+
+### Rate Limit Test (Multiple Requests)
+# Run these requests quickly to test rate limiting
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "securePass123!"
+}
+
+### Options Request (CORS Test)
+OPTIONS {{baseUrl}}/register
+Origin: http://localhost:3000
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: Content-Type
