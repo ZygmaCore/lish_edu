@@ -36,3 +36,7 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Contributors
+
+The list of contributors has been moved to CONTRIBUTOR.md for better organization.
