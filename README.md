@@ -39,4 +39,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Contributors
 
-The list of contributors has been moved to CONTRIBUTOR.md for better organization.
+The list of contributors has been moved to **CONTRIBUTOR.md** for better organization.
